@@ -13,13 +13,13 @@ Loop2:
     ble x6, x30, ExitLoop2 # se !(arr[j] > key) que equivale a arr[j] <= key, saia do loop
     sw x6, 8(x5) # arr[j+1] = arr[j]
     addi x31, x31, -1 # j--
-    beq x0, x0, Loop2 # retornando para o começo do Loop interno
+    jal x0, Loop2 # retornando para o começo do Loop interno
 ExitLoop2:
     slli x5, x31, 3
     add x5, x5, x10
     sw x30, 8(x5) # arr[j+1] = key
     addi x28, x28, 1 # i++
-    beq x0, x0, Loop1 # retornando para o começo do primeiro loop
+    jal x0, Loop1 # retornando para o começo do primeiro loop
 ExitLoop1:
 ExitFunction: 
     # ... Resto do código ...  
