@@ -1,5 +1,5 @@
     addi x28, x0, 1 # usaremos x28 para armazenar o número 1
-    ble x10, x28, False # se x10 <= x28 então vá para False
+    bge x28, x10, False # se x10 <= x28 então vá para False
     addi x28, x0, 2 #x28 será onde armazenaremos o valor da variável d, que é incializada com valor 2
 Loop:
     bge x28, x10, True # se d >= n, condição de parada do loop, então vá para True

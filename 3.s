@@ -10,7 +10,7 @@ Loop2:
     slli x5, x31, 3 # x5 faz a mesma função que x29
     add x5, x5, x10 # x5 recebe o endereço de arr[j]
     lw x6, 0(x5) # x6 recebe o valor de arr[j]
-    ble x6, x30, ExitLoop2 # se !(arr[j] > key) que equivale a arr[j] <= key, saia do loop
+    bge x30, x6, ExitLoop2 # se !(arr[j] > key) que equivale a key >= arr[j], saia do loop
     sw x6, 8(x5) # arr[j+1] = arr[j]
     addi x31, x31, -1 # j--
     jal x0, Loop2 # retornando para o começo do Loop interno
